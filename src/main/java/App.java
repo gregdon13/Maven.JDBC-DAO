@@ -14,8 +14,11 @@ public class App {
         conn = null;
         try {
             conn = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println(Arrays.toString(userDao.findById(4)));
+            System.out.println(userDao.findById(4).toString());
             System.out.println(userDao.findAll().toString());
+            userDao.update("Rorshach");
+            //userDao.delete(5);
+            //userDao.create("dcUni.Villains");
             System.out.println("Success!");
         } catch (SQLException e) {
             System.err.println(e.getMessage());
