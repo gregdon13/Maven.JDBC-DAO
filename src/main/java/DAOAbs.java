@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface DAOAbs {
+public interface DAOAbs<T extends DTO> {
     //instead of overriding methods in subclass, just fill out
     //these methods and call them through the subclass
 

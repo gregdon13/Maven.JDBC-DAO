@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAO implements DAOAbs {
+public class DAO implements DAOAbs<DTO> {
 
     public String findById(int id) throws SQLException {
         PreparedStatement pstmt = App.conn.prepareStatement(
@@ -43,11 +43,13 @@ public class DAO implements DAOAbs {
         return findById(4);
     }
 
-    public String create(String dto) throws SQLException {
+    public DTOclass create(DTOclass dto) throws SQLException {
         PreparedStatement pstmt = App.conn.prepareStatement(
-                "CREATE TABLE ? (id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, Name VARCHAR(255) NOT NULL);"
+                "INSERT into alter_ego(id, name, player_id) values (id, ?, ?);"
         );
-        pstmt.setString(1, dto);
+        //pstmt.setString(1, "alter_ego");
+        pstmt.setString(1, dto.getName());
+        pstmt.setInt(2, dto.getPlayerId());
         pstmt.executeUpdate();
         return dto;
     }

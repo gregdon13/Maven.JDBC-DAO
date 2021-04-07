@@ -8,6 +8,7 @@ public class App {
     public static final String USER = "greg";
     public static final String PASS = "zipcode0";
     public static DAO userDao = new DAO();
+    public static DTOclass dtOclass = new DTOclass("Grogu", 15);
     public static Connection conn;
 
     public static Connection getConnection() throws SQLException {
@@ -17,8 +18,8 @@ public class App {
             System.out.println(userDao.findById(4).toString());
             System.out.println(userDao.findAll().toString());
             userDao.update("Rorshach");
-            //userDao.delete(5);
-            //userDao.create("dcUni.Villains");
+            userDao.delete(5);
+            userDao.create(dtOclass);
             System.out.println("Success!");
         } catch (SQLException e) {
             System.err.println(e.getMessage());
