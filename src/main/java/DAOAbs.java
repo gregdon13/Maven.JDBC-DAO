@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface DAOAbs<T extends DTO> {
-    //instead of overriding methods in subclass, just fill out
-    //these methods and call them through the subclass
 
     String findById(int id) throws SQLException;
 
@@ -14,7 +12,8 @@ public interface DAOAbs<T extends DTO> {
 
     String update(String dto) throws SQLException;
 
-    //T create(T dto);
+    T create(T dto) throws SQLException;
 
     void delete(int id) throws SQLException;
+
 }

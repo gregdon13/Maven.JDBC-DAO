@@ -9,6 +9,7 @@ public class DTOclass extends DTO{
         this.playerId = playerId;
     }
 
+    public DTOclass() {}
 
     public int getId() {
         return this.id;

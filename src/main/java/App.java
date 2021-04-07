@@ -1,7 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class App {
     public static final String URL = "jdbc:mysql://localhost:3306/dcUni";
@@ -15,10 +14,10 @@ public class App {
         conn = null;
         try {
             conn = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println(userDao.findById(4).toString());
+            System.out.println(userDao.findById(4));
             System.out.println(userDao.findAll().toString());
             userDao.update("Rorshach");
-            userDao.delete(5);
+            userDao.delete(7);
             userDao.create(dtOclass);
             System.out.println("Success!");
         } catch (SQLException e) {

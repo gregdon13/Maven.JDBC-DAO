@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DAO implements DAOAbs<DTO> {
+public class DAO implements DAOAbs {
 
     public String findById(int id) throws SQLException {
         PreparedStatement pstmt = App.conn.prepareStatement(
@@ -43,11 +43,11 @@ public class DAO implements DAOAbs<DTO> {
         return findById(4);
     }
 
-    public DTOclass create(DTOclass dto) throws SQLException {
+
+    public DTO create(DTO dto) throws SQLException {
         PreparedStatement pstmt = App.conn.prepareStatement(
                 "INSERT into alter_ego(id, name, player_id) values (id, ?, ?);"
         );
-        //pstmt.setString(1, "alter_ego");
         pstmt.setString(1, dto.getName());
         pstmt.setInt(2, dto.getPlayerId());
         pstmt.executeUpdate();
@@ -61,12 +61,4 @@ public class DAO implements DAOAbs<DTO> {
         pstmt.setInt(1, id);
         pstmt.executeUpdate();
     }
-
-
-//    public String update(String dto) throws SQLException {
-//        PreparedStatement pstmt = App.conn.prepareStatement(
-//                "Update alter_ego set name = ? where id = 2"
-//        );
-//        pstmt.setString(1, dto);
-//    }
 }
